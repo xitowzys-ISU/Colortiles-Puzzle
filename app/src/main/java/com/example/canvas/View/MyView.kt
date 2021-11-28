@@ -15,9 +15,6 @@ class MyView(context: Context?) : View(context) {
     private val p = Paint()
 
     private val gridSize = 3
-
-    private var centerX = 0f
-    private var centerY = 0F
     private val game = Game(gridSize)
 
     @SuppressLint("DrawAllocation")
@@ -28,11 +25,7 @@ class MyView(context: Context?) : View(context) {
     }
 
     override fun onDraw(canvas: Canvas?) {
-//        p.color = Color.RED
-
         canvas?.apply {
-            Log.d("mytag", "onDraw: w $width, h $height")
-
             drawColor(Color.YELLOW)
 
             for (tile in game.tiles) {
@@ -43,14 +36,11 @@ class MyView(context: Context?) : View(context) {
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
-        centerX = event?.x ?: 0f
-        centerY = event?.y ?: 0f
+        val pos = game.getTileIndexes(event?.x ?: 0f, event?.y ?: 0f)
+
+        Log.d("pos", pos.toString())
+
         invalidate()
         return true
-    }
-
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-        Log.d("Tiles", "onMeasure $widthMeasureSpec, $heightMeasureSpec")
     }
 }

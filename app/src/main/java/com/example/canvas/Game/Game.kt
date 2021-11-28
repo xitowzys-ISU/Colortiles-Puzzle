@@ -2,17 +2,24 @@ package com.example.canvas.Game
 
 import android.graphics.Color
 import android.graphics.Paint
-import android.util.Log
 import kotlin.random.Random
 
 
 class Game(val gridSize: Int) {
 
     /**
-     * Game grid
+     * Game window settings
      */
     lateinit var gameWindow: GameWindow
+
+    /**
+     * Game grid
+     */
     var grid = Array(gridSize) { BooleanArray(gridSize) { false } }
+
+    /**
+     * Array of tiles
+     */
     var tiles: ArrayList<Tile> = ArrayList()
 
     /**
@@ -57,8 +64,6 @@ class Game(val gridSize: Int) {
                 )
             }
         }
-
-        Log.d("tiles: ", tiles.joinToString())
     }
 
     /**
@@ -74,6 +79,24 @@ class Game(val gridSize: Int) {
         }
 
         return true
+    }
+
+    /**
+     * Get tile id
+     */
+    fun getTileIndexes(touchX: Float, touchY: Float): Pair<Int, Int> {
+        for (i in grid.indices) {
+            for (j in grid[i].indices) {
+                if (gameWindow.gamePadding + i * gameWindow.tileSize.toFloat() + gameWindow.tilesPadding * i <= touchX &&
+                    touchX <= gameWindow.gamePadding + (i + 1) * gameWindow.tileSize.toFloat() + gameWindow.tilesPadding * i &&
+                    gameWindow.verticalPadding + j * gameWindow.tileSize.toFloat() + gameWindow.tilesPadding * j <= touchY &&
+                    touchY <= gameWindow.verticalPadding + (j + 1) * gameWindow.tileSize.toFloat() + gameWindow.tilesPadding * j
+                ) {
+                    return Pair(i, j)
+                }
+            }
+        }
+        return Pair(-1, -1)
     }
 
     /**
