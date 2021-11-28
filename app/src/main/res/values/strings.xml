@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">Colortiles</string>
-    <string name="win_text">Victory!</string>
+    <string name="app_name">Color tiles</string>
+    <string name="win_text">Вы выиграли!!!</string>
 </resources>
