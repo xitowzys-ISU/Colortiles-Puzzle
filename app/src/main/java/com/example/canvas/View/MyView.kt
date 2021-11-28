@@ -1,4 +1,4 @@
-package com.example.canvas
+package com.example.canvas.View
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -8,6 +8,8 @@ import android.graphics.Paint
 import android.util.Log
 import android.view.MotionEvent
 import android.view.View
+import com.example.canvas.Game.Game
+import com.example.canvas.Game.GameWindow
 
 class MyView(context: Context?) : View(context) {
     private val p = Paint()

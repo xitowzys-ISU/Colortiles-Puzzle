@@ -1,4 +1,4 @@
-package com.example.canvas
+package com.example.canvas.Game
 
 import kotlin.random.Random
 
