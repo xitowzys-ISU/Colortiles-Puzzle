@@ -15,6 +15,6 @@
 
 Демонстрация работы:
 
-|      |      |
-| ---- | ---- |
+| ![demo_1](https://gitlab.com/ISU-Applied-Computer-Science/5th-semester/mobile-development/Colortiles-puzzle/-/raw/main/raw/demo_1.jpeg?inline=false) | ![demo_2](https://gitlab.com/ISU-Applied-Computer-Science/5th-semester/mobile-development/Colortiles-puzzle/-/raw/main/raw/demo_2.jpeg?inline=false) |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
 
