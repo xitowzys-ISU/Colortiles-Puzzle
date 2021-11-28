@@ -5,7 +5,6 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
-import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import com.example.canvas.Game.Game
@@ -35,12 +34,11 @@ class MyView(context: Context?) : View(context) {
         }
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent?): Boolean {
-        val pos = game.getTileIndexes(event?.x ?: 0f, event?.y ?: 0f)
-
-        Log.d("pos", pos.toString())
+        game.clickTiles(event?.x ?: 0f, event?.y ?: 0f)
 
         invalidate()
-        return true
+        return false
     }
 }

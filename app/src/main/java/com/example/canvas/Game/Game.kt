@@ -10,17 +10,17 @@ class Game(val gridSize: Int) {
     /**
      * Game window settings
      */
-    lateinit var gameWindow: GameWindow
+    private lateinit var gameWindow: GameWindow
 
     /**
      * Game grid
      */
-    var grid = Array(gridSize) { BooleanArray(gridSize) { false } }
+    private var grid = Array(gridSize) { BooleanArray(gridSize) { false } }
 
     /**
      * Array of tiles
      */
-    var tiles: ArrayList<Tile> = ArrayList()
+    var tiles = ArrayList<Tile>()
 
     /**
      * Random generation of the playing field
@@ -67,6 +67,21 @@ class Game(val gridSize: Int) {
     }
 
     /**
+     * Update tile colors
+     */
+    private fun updateColorTiles() {
+        for (i in grid.indices) {
+            for (j in grid[i].indices) {
+                if (grid[i][j]) {
+                    tiles[i * gridSize + j].color = Color.RED
+                } else {
+                    tiles[i * gridSize + j].color = Color.BLUE
+                }
+            }
+        }
+    }
+
+    /**
      * Check if all tiles are compiled
      */
     private fun isVictory(): Boolean {
@@ -84,7 +99,7 @@ class Game(val gridSize: Int) {
     /**
      * Get tile id
      */
-    fun getTileIndexes(touchX: Float, touchY: Float): Pair<Int, Int> {
+    private fun getTileIndexes(touchX: Float, touchY: Float): Pair<Int, Int> {
         for (i in grid.indices) {
             for (j in grid[i].indices) {
                 if (gameWindow.gamePadding + i * gameWindow.tileSize.toFloat() + gameWindow.tilesPadding * i <= touchX &&
@@ -97,6 +112,26 @@ class Game(val gridSize: Int) {
             }
         }
         return Pair(-1, -1)
+    }
+
+    /**
+     * Tile click handling
+     */
+    fun clickTiles(touchX: Float, touchY: Float) {
+
+        val tile = getTileIndexes(touchX, touchY)
+
+        if (tile.first == -1 || tile.second == -1)
+            return
+
+        for (i in grid.indices) {
+            grid[i][tile.second] = grid[i][tile.second].not()
+            grid[tile.first][i] = grid[tile.first][i].not()
+        }
+
+        grid[tile.first][tile.second] = grid[tile.first][tile.second].not()
+
+        updateColorTiles()
     }
 
     /**

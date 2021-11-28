@@ -5,6 +5,5 @@ data class Tile(
     val y: Float,
     val width: Float,
     val height: Float,
-    val color: Int
-) {
-}
+    var color: Int
+)
