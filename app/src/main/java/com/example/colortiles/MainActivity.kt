@@ -1,8 +1,8 @@
-package com.example.canvas
+package com.example.colortiles
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.canvas.View.MyView
+import com.example.colortiles.View.MyView
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

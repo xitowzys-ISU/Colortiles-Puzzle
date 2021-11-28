@@ -1,4 +1,4 @@
-package com.example.canvas.Game
+package com.example.colortiles.Game
 
 import android.graphics.Color
 import android.graphics.Paint

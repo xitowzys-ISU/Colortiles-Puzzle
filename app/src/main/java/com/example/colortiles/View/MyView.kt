@@ -1,4 +1,4 @@
-package com.example.canvas.View
+package com.example.colortiles.View
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -8,9 +8,9 @@ import android.graphics.Paint
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Toast
-import com.example.canvas.Game.Game
-import com.example.canvas.Game.GameWindow
-import com.example.canvas.R
+import com.example.colortiles.Game.Game
+import com.example.colortiles.Game.GameWindow
+import com.example.colortiles.R
 
 class MyView(context: Context?) : View(context) {
     private val p = Paint()

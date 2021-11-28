@@ -1,4 +1,4 @@
-package com.example.canvas
+package com.example.colortiles
 
 import org.junit.Test
 

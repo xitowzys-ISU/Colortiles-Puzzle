@@ -1,4 +1,4 @@
-package com.example.canvas.Game
+package com.example.colortiles.Game
 
 class GameWindow(w: Int, h: Int, val gamePadding: Int, val tilesPadding: Int, val gridSize: Int) {
 

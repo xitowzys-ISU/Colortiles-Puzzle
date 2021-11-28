@@ -1,4 +1,4 @@
-package com.example.canvas.Game
+package com.example.colortiles.Game
 
 data class Tile(
     val x: Float,
