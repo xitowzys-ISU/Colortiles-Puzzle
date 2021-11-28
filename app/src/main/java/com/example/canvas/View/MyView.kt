@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.Toast
 import com.example.canvas.Game.Game
 import com.example.canvas.Game.GameWindow
+import com.example.canvas.R
 
 class MyView(context: Context?) : View(context) {
     private val p = Paint()
@@ -42,7 +43,7 @@ class MyView(context: Context?) : View(context) {
         invalidate()
 
         if (game.isVictory()) {
-            val toast = Toast.makeText(context, "Victory!", Toast.LENGTH_LONG)
+            val toast = Toast.makeText(context, context.getString(R.string.win_text), Toast.LENGTH_LONG)
             toast.show()
         }
 
