@@ -7,6 +7,7 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.view.MotionEvent
 import android.view.View
+import android.widget.Toast
 import com.example.canvas.Game.Game
 import com.example.canvas.Game.GameWindow
 
@@ -39,6 +40,14 @@ class MyView(context: Context?) : View(context) {
         game.clickTiles(event?.x ?: 0f, event?.y ?: 0f)
 
         invalidate()
+
+        if (game.isVictory()) {
+            val toast = Toast.makeText(context, "Victory!", Toast.LENGTH_LONG)
+            toast.show()
+        }
+
         return false
     }
+
+
 }

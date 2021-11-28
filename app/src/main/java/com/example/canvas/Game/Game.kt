@@ -88,7 +88,7 @@ class Game(val gridSize: Int) {
     /**
      * Check if all tiles are compiled
      */
-    private fun isVictory(): Boolean {
+    fun isVictory(): Boolean {
         for (i in grid.indices) {
             for (j in grid[i].indices) {
                 if (!grid[i][j]) {
