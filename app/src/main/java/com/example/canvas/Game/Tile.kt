@@ -4,6 +4,7 @@ data class Tile(
     val x: Float,
     val y: Float,
     val width: Float,
-    val height: Float
+    val height: Float,
+    val color: Int
 ) {
 }

@@ -28,7 +28,7 @@ class MyView(context: Context?) : View(context) {
     }
 
     override fun onDraw(canvas: Canvas?) {
-        p.color = Color.RED
+//        p.color = Color.RED
 
         canvas?.apply {
             Log.d("mytag", "onDraw: w $width, h $height")
@@ -36,6 +36,7 @@ class MyView(context: Context?) : View(context) {
             drawColor(Color.YELLOW)
 
             for (tile in game.tiles) {
+                p.color = tile.color
                 drawRect(tile.x, tile.y, tile.width, tile.height, p)
             }
         }
