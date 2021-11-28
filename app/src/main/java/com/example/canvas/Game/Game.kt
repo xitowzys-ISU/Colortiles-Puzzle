@@ -26,16 +26,20 @@ class Game(val gridSize: Int) {
      * Random generation of the playing field
      */
     private fun generateGrid() {
-        for (i in grid.indices) {
-            for (j in grid[i].indices) {
-                grid[i][j] = Random.nextBoolean()
+
+        while (true){
+            for (i in grid.indices) {
+                for (j in grid[i].indices) {
+                    grid[i][j] = Random.nextBoolean()
+                }
+            }
+
+            if (isVictory().not()) {
+                break
             }
         }
 
         generateTiles()
-//        if (isVictory()) {
-//            generateGrid()
-//        }
     }
 
     /**
